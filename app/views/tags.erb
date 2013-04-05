@@ -1,0 +1,6 @@
+<div class="container">
+<h2><center>Tags</center></h2>
+<% @tags.each do |tag| %>
+<p><a href='/tag/<%= tag %>'><%=tag%></a></p>
+<% end %>
+</div>

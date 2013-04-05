@@ -1,0 +1,63 @@
+.container {
+  margin: 20px auto;
+  width: 600px;
+  padding-left: 30px;
+  border: 1px dotted black;
+  background-color: white ;
+}
+th {
+  text-align: left;
+}
+nav {
+  color: lightgrey;
+  background-color: grey;
+}
+nav a {
+  color: red;
+  padding: 10px;
+
+}
+nav a:hover {
+  color:red;
+  background-color:slategrey;
+}
+nav ul {
+    list-style-type: none;
+    padding: 10px;
+    margin: 0;
+    padding-left: 80px;
+}
+li {
+  display: inline;
+}
+a {
+  text-decoration: none;
+  color: #545454;
+}
+a:hover {
+  color: black;
+}
+
+article {
+  
+
+}
+form {
+  margin-left: 20px;
+}
+
+textarea {
+  background-color: lightgrey;
+  width: 500px;
+  height: 60px;
+}
+#post_tags {
+  width: 400px;
+}
+#post_title {
+  width: 500px;
+  background-color: lightgrey;
+}
+a nav {
+  color: black;
+}

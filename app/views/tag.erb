@@ -1,0 +1,8 @@
+<div class = "container"><h1>Posts with tag: <em><%=@tag.word%></em></h1></div>
+<% @posts.reverse.each do |post| %>
+  <div class = "container">
+  <h3><a href='/post/<%= post[:id] %>'><%= post[:title] %></a></h3>
+  <p><%= post[:content] %></p>
+  </div>
+  <% end %>
+</div>

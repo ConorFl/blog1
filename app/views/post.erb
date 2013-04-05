@@ -1,0 +1,8 @@
+<div class="container">
+<h3><%= @post[:title] %></h3>
+<p><%= @post[:content] %></p><br>
+<p><b>Tags</b>
+<% @post.tags.each do |x| %>
+<a href='/tag/<%= x.word %>'><%=x.word%></a>
+<% end %></p>
+</div>
