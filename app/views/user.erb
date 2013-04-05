@@ -1,0 +1,18 @@
+<div class="container"><h1><center><%= @user.email %> Posts</center></h1></div>
+
+<% @posts_array.each do |post| %>
+<div class="container">
+<article><h3><a href="/post/<%= post.id%>"><%= post.title %></a></h3>
+<h5>written by <a href='/user/<%=post.user.id%>'><%= post.user.email %></a></h5>
+<%= post.content %></p><br>
+<%if session[:current_user_id] == post.user.id %>
+   <%= "<a href='/edit/"+post.id.to_s+"'>Edit</a>" %>
+   <%= "<a href='/delete/"+post.id.to_s+"'>Delete</a>" %>
+  <% end %>
+  </article>
+  Tags: 
+  <% post.tags.each do |x| %>
+    <a href='/tag/<%=x.word%>'><%= x.word %></a>
+  <% end %>
+</div>
+<% end %>

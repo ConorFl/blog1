@@ -1,4 +1,5 @@
-<div class="container">
+<%if session[:current_user_id] %>
+<div class="container"> 
 <h1><center>Welcome<%=@message if @message%>!</center></h1>
 <form method="post" action="/new_post">
   <label for="post_title">Title:</label>
@@ -14,15 +15,18 @@
 </form><br>
 
 </div>
-
+<% end %>
 
   <div class="container"><h1><center>Posts</center></h1></div>
   <% @posts_array.each do |post| %>
   <div class="container">
   <article><h3><a href="/post/<%= post.id%>"><%= post.title %></a></h3>
-  <h5>written by <%= post.user.inspect %></h5>
+  <h5>written by <a href='/user/<%=post.user.id%>'><%= post.user.email %></a></h5>
   <%= post.content %></p><br>
-  <a href="/edit/<%= post.id %>">Edit</a><a href="/delete/<%= post.id %>"> Delete</a>
+  <%if session[:current_user_id] == post.user.id %>
+     <%= "<a href='/edit/"+post.id.to_s+"'>Edit</a>" %>
+     <%= "<a href='/delete/"+post.id.to_s+"'>Delete</a>" %>
+  <% end %>
   </article>
   Tags: 
   <% post.tags.each do |x| %>
