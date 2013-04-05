@@ -6,7 +6,7 @@ post '/new_post' do
   @new_post.tags = @tag_strings_array.map do |word|
     Tag.find_or_create_by_word(word)
   end
-  User.find_by_id(session[:current_user_id]).posts << @new_post
+  @new_post.user = User.find_by_id(session[:current_user_id])
   @every_tag = Tag.all
 
   erb :index

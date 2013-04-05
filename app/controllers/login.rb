@@ -24,13 +24,13 @@ post '/login' do
     @message = " back #{@user.email}"
     session[:current_user_id] = @user.id
   end
-  @posts_array = []
+  @posts_array = Post.all
   erb :index
 end
 
 get '/logout' do
   logout!
-  @posts_array = []
+  @posts_array = Post.all
   erb :index
 end
 
