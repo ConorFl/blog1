@@ -25,6 +25,7 @@ end
 get '/delete/:id' do
     Post.find(params[:id]).delete
     @posts_array = Post.all.reverse
+    clean_up_tags
     erb :index
 end
 

@@ -8,3 +8,8 @@ def find_arrays_of_tags
   end
   @array_of_associated_tags
 end
+def clean_up_tags
+  Tag.all.each do |tag|
+    tag.delete if tag.posts == []
+  end
+end

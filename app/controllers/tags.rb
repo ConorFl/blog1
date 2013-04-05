@@ -1,4 +1,5 @@
 get '/tags' do
+  clean_up_tags
   @tags = Tag.all.map{|x| x[:word]}
   erb :tags
 end
