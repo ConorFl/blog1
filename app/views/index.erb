@@ -1,5 +1,5 @@
 <div class="container">
-<h1><center>Welcome!</center></h1>
+<h1><center>Welcome<%=@message if @message%>!</center></h1>
 <form method="post" action="/new_post">
   <label for="post_title">Title:</label>
   <input id="post_title" name="title"><br><br>
@@ -20,7 +20,9 @@
   <% @posts_array.each do |post| %>
   <div class="container">
   <article><h3><a href="/post/<%= post.id%>"><%= post.title %></a></h3>
+  <h5>written by <%= post.class%></h5>
   <%= post.content %></p><br>
+  <a href="/edit/<%= post.id %>">Edit</a><a href="/delete/<%= post.id %>"> Delete</a>
   </article>
   Tags: 
   <% post.tags.each do |x| %>
@@ -28,7 +30,6 @@
   <% end %>
 </div>
   <% end %>
-  <%=@all_tags if @all_tags %>
 
 
 
